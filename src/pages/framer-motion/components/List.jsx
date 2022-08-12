@@ -63,7 +63,7 @@ export const List = () => {
   return (
     <AnimateSharedLayout>
       <motion.h1
-        className="font-bold text-4xl mb-6"
+        className="font-bold text-4xl mb-6 mt-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         key="title"
@@ -81,7 +81,7 @@ export const List = () => {
                   opacity: 1,
                   transition: { delay: idx * 0.05 },
                 }}
-                exit={{ opacity: 0, scale: 1.1 }}
+                exit={{ opacity: 0 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.99 }}
                 className="list-item rounded bg-purple-200"

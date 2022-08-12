@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { Form } from './components'
 import ListLoader from './components/ElementsLoader'
+import Form from './components/Form'
 import { List } from './components/List'
 
 export const Main = () => {
