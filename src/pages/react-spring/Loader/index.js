@@ -6,6 +6,7 @@ import flag from './flag.png'
 
 const Loader = () => {
   const [move, setMove] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
   const styles = useSpring({
     loop: true,
     to: [
@@ -52,37 +53,39 @@ const Loader = () => {
   }
 
   return (
-    <>
-      <div
-        style={{
-          position: 'fixed',
-          left: 0,
-          right: 0,
-          top: 0,
-          bottom: 0,
-          backgroundColor: 'white',
-        }}
-      >
-        <animated.img style={renderStyles()} src={car} alt="car" />
-        <img
+    isLoading && (
+      <>
+        <div
           style={{
-            width: 100,
-            width: 100,
             position: 'fixed',
-            top: '50%',
-            left: '50%',
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            backgroundColor: 'white',
           }}
-          src={flag}
-          alt="flag"
-        />
-        <div style={{ position: 'fixed', right: 20, bottom: 20 }}>
-          <button style={{ marginRight: 60 }} onClick={() => setMove('down')}>
-            DOWN
-          </button>
-          <button onClick={() => setMove('right')}>RIGHT</button>
+        >
+          <animated.img style={renderStyles()} src={car} alt="car" />
+          <img
+            style={{
+              width: 100,
+              height: 100,
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+            }}
+            src={flag}
+            alt="flag"
+          />
+          <div style={{ position: 'fixed', right: 20, bottom: 20 }}>
+            <button style={{ marginRight: 60 }} onClick={() => setMove('down')}>
+              DOWN
+            </button>
+            <button onClick={() => setMove('right')}>RIGHT</button>
+          </div>
         </div>
-      </div>
-    </>
+      </>
+    )
   )
 }
 
