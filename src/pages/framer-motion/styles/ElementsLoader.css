@@ -1,0 +1,21 @@
+.list-loader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.list-loader__element {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.list-loader__element:nth-child(3n) {
+  height: 120px;
+}
