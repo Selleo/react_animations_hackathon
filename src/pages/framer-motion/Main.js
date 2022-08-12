@@ -1,3 +1,10 @@
+import { Component } from './components'
+
 export const Main = () => {
-  return <div>Framer motion</div>
+  return (
+    <>
+      <Component />
+      <div>Framer motion</div>
+    </>
+  )
 }
