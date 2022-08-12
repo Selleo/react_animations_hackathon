@@ -1,0 +1,19 @@
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+}
+
+.list-item + .list-item {
+  margin-top: 1rem;
+}
+
+.list-remove-button {
+  padding: 1rem 1.5rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
