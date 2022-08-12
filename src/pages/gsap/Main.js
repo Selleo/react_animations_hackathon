@@ -1,3 +1,9 @@
+import StartPage from './Pages/StartPage'
+
 export const Main = () => {
-  return <div>GSAP</div>
+  return (
+    <div>
+      <StartPage />
+    </div>
+  )
 }
