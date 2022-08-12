@@ -39,6 +39,7 @@ const LIST_DATA = [
 
 export const List = () => {
   const [listData, setListData] = useState(LIST_DATA)
+  const [isDragOn, setIsDragOn] = useState(false)
 
   const removeItem = (id) => {
     setListData((oldData) => {
@@ -75,6 +76,7 @@ export const List = () => {
           {listData.map(({ id, name }, idx) => {
             return (
               <motion.div
+                drag={isDragOn}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{
                   y: 0,
@@ -84,7 +86,7 @@ export const List = () => {
                 exit={{ opacity: 0 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.99 }}
-                className="list-item rounded bg-purple-200"
+                className="list-item drop-shadow-sm rounded bg-purple-200"
                 layout="position"
                 key={id}
               >
@@ -100,14 +102,30 @@ export const List = () => {
           })}
         </AnimatePresence>
       </motion.div>
-      <motion.button
-        key="add-button"
-        layout
-        className="px-3 py-2 rounded text-green-800 bg-green-300 inline-block "
-        onClick={addItem}
-      >
-        Add New Todo
-      </motion.button>
+      <div className="flex gap-2">
+        <motion.button
+          key="add-button"
+          layout
+          whileFocus={{ scale: 1.1 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.99 }}
+          className="px-4 py-2 rounded text-green-800 bg-green-300 inline-block "
+          onClick={addItem}
+        >
+          Add New Todo
+        </motion.button>
+        <motion.button
+          key="add-button"
+          layout
+          whileFocus={{ scale: 1.1 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.99 }}
+          className="px-4 py-2 rounded text-blue-600 bg-blue-300 inline-block "
+          onClick={() => setIsDragOn((s) => !s)}
+        >
+          Yeet Mode: {isDragOn ? 'On' : 'Off'}
+        </motion.button>
+      </div>
     </AnimateSharedLayout>
   )
 }
