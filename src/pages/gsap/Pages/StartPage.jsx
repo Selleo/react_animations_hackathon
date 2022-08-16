@@ -1,29 +1,22 @@
-import './test.css'
-
 import { gsap } from 'gsap'
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-function fetchFakeData() {
+import TextInput from './../Pages/TextInput'
+import List from './List'
+
+function fetchComponents() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve([
-        { id: 1, color: 'blue' },
-        { id: 2, color: 'red' },
-        { id: 3, color: 'purple' },
+        { id: 1, component: <TextInput /> },
+        { id: 2, component: <List /> },
       ])
     }, 2000)
   })
 }
 
-function Box({ children, color }) {
-  return <div className={`box ${color}`}>{children}</div>
-}
-
 const StartPage = () => {
-  const el = useRef()
-  const q = gsap.utils.selector(el)
-
-  const header = React.createRef()
+  const header = useRef()
   const [data, setData] = useState([])
   const [loadingState, setLoadingState] = useState()
 
@@ -31,27 +24,11 @@ const StartPage = () => {
     if (loadingState !== 'start') return
 
     const loadData = async () => {
-      const data = await fetchFakeData()
+      const data = await fetchComponents()
       setData(data)
       setLoadingState('complete')
     }
     loadData()
-  }, [loadingState])
-
-  useLayoutEffect(() => {
-    if (loadingState !== 'complete') return
-
-    gsap.fromTo(
-      q('.box'),
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 1,
-        stagger: 0.2,
-      }
-    )
   }, [loadingState])
 
   useEffect(() => {
@@ -67,13 +44,12 @@ const StartPage = () => {
   }
 
   return (
-    <div className="flex-row h-screen bg-gray-600 p-6">
+    <div className="flex-row h-screen bg-gray-800 p-6">
       <div
         className="w-full flex justify-center items-center h-auto font-bold"
         style={{ fontSize: '35px' }}
       >
         <h1 className="h=32 text-justify" ref={header}>
-          {' '}
           Hello Gasp Animations
         </h1>
       </div>
@@ -88,12 +64,17 @@ const StartPage = () => {
               Start Loading
             </button>
           ) : null}
-          {loadingState === 'start' ? <div>loading components... </div> : null}
-          {data.map((item) => (
-            <div className="text-blue-300" key={item.id} {...item}>
-              Box {item.id}
+          {loadingState === 'start' ? (
+            <div className="text-blue-600 outline-cyan-500 w-64">
+              loading components...{' '}
             </div>
-          ))}
+          ) : loadingState === 'complete' ? (
+            <div className="flex flex-col">
+              {data.map((item) => (
+                <div key={item.id}>{item.component}</div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

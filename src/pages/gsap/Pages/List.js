@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import { gsap } from 'gsap'
+import { useState } from 'react'
 
 const data = [
   {
@@ -37,9 +37,7 @@ const List = () => {
 
   const updateList = (id, show) => {
     const newShow = list.map((item) => {
-      if (item.id === id) {
-        return { ...item, show: show }
-      }
+      if (item.id === id) return { ...item, show: show }
 
       return item
     })
@@ -64,7 +62,7 @@ const List = () => {
     <div className="bg-gray-800 mt-10" style={{ color: '#fff' }}>
       <ul>
         {list.map((item) => (
-          <li style={{ margin: '10px 0' }}>
+          <li style={{ margin: '10px 0' }} key={item.id}>
             <span
               onClick={() => {
                 updateList(item.id, !item.show)
@@ -84,6 +82,7 @@ const List = () => {
                 <div>
                   {item.description}{' '}
                   <img
+                    alt={item.description}
                     style={{ width: 300 }}
                     src={`/planets/${item.name.toLowerCase()}.png`}
                   />
