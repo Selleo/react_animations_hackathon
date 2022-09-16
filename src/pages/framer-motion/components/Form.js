@@ -6,7 +6,6 @@ import SelectInput from './SelectInput'
 
 const Form = () => {
   const [inputNameQuery, setInputNameQuery] = useState('')
-  const [date, setDate] = useState(() => new Date().toLocaleDateString('en-CA'))
 
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -32,16 +31,6 @@ const Form = () => {
         error={errorMessage}
         onChange={onChangeInputName}
         value={inputNameQuery}
-      />
-      <Input
-        label="Date"
-        type="date"
-        error=""
-        onChange={(e) => {
-          console.log(e)
-          setDate(e.target.value)
-        }}
-        value={date}
       />
       <SelectInput />
     </motion.form>

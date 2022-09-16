@@ -12,11 +12,15 @@ const Input = ({ label, type, error, onChange, value }) => {
     <motion.div
       layout="position"
       key={label}
-      class="w-full mt-2 md:w-1/2 mb-6 md:mb-0"
+      initial={{ scale: 0, y: 20 }}
+      animate={{ scale: 1, y: 0 }}
+      transition={{ delay: type === 'date' ? 0.4 : 0.25 }}
+      class="w-full flex flex-col mt-2 md:w-1/2 mb-6 md:mb-0"
     >
       <motion.label
         class="block uppercase tracking-wide text-purple-700 text-xs font-bold mb-2"
         for="grid-first-name"
+        layout="position"
         style={{
           pointerEvents: 'none',
           zIndex: '-1',
@@ -53,6 +57,7 @@ const Input = ({ label, type, error, onChange, value }) => {
         onFocusCapture={animateLabel}
         placeholder={isFocused ? '' : label}
         type={type}
+        layout="position"
         whileFocus={{ scale: 1.05 }}
       />
       {!isEmpty(error) && (
@@ -61,6 +66,7 @@ const Input = ({ label, type, error, onChange, value }) => {
             class="text-red-500 block text-sm"
             for="grid-first-name"
             key={error}
+            layout="position"
             animate={
               !isEmpty(error)
                 ? {

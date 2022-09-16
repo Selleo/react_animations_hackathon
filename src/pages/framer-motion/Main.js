@@ -14,7 +14,7 @@ export const Main = () => {
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false)
-    }, 500)
+    }, 2000)
     return () => clearTimeout(loadingTimeout)
   }, [])
 
@@ -64,7 +64,7 @@ export const Main = () => {
       </div>
       {showContent && (
         <>
-          <Form />
+          {/* <Form /> */}
           <List />
         </>
       )}
