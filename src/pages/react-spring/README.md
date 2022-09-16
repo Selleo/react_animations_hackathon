@@ -1,0 +1,4 @@
+- Very confusing api (if you provide object then you get only styles, if you provide function then you receive styles and API in tuple)
+- Documentation is missing some explanation
+- You have to rely on reverse engineering the examples
+- I had problem with two separate animations to control the same css property (height) but finally found a tip in docs
