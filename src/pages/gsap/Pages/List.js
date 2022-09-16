@@ -84,7 +84,7 @@ const List = () => {
             <div className="flex justify-between">
               <p className="uppercase">{item.name}</p>
               <button
-                className="text-red-500 ml-3 text-base outline outline-1 py-0 px-2 rounded"
+                className="text-red-600 ml-3 text-base outline outline-2 py-0 px-2 rounded"
                 onClick={(e) => deleteItem(e, item.id)}
               >
                 X

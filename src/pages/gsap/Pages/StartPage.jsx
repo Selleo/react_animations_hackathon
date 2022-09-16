@@ -48,7 +48,7 @@ const StartPage = () => {
   }
 
   return (
-    <div className="min-h-screen flex-row bg-gray-800 p-6">
+    <div className="min-h-[1200px] flex-row bg-gray-800 p-6">
       <div className="w-full flex justify-center items-center h-auto font-bold text-[35px]">
         <h1 className="text-justify" ref={header}>
           Hello Gasp Animations
