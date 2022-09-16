@@ -20,6 +20,7 @@ const listItems = [
 const List = () => {
   const [state] = useState({ x: 400, y: 50 })
   const [globalState, setGlobalState] = useState()
+  const [globalStateForDescription, setGlobalStateForDescription] = useState()
   const [localStorageItems, setValue] = useLocalStorage('listItems', listItems)
 
   const getStyles = (prevStyles) => {
@@ -52,6 +53,25 @@ const List = () => {
     copyState[itemIndex] = newState
     setGlobalState(copyState)
   }
+
+  const handleDescriptionAnimation = (itemIndex, items) => {
+    console.log('elo')
+
+    const copyState = [...items]
+    const oldState = copyState[itemIndex]
+
+    const newState = {
+      ...oldState,
+      x:
+        globalStateForDescription?.[itemIndex].x.val < 0
+          ? spring(0, { stiffness: 160, damping: 25 })
+          : spring(-100, { stiffness: 100, damping: 25 }),
+    }
+    console.log({ newState, item: copyState[itemIndex] })
+    copyState[itemIndex] = newState
+    setGlobalStateForDescription(copyState)
+  }
+
   return (
     <>
       <StaggeredMotion
@@ -102,7 +122,44 @@ const List = () => {
                             flexGrow: 1,
                           }}
                         >
-                          {localStorageItems && localStorageItems[i]?.title}
+                          <div
+                            onClick={() => handleDescriptionAnimation(i, items)}
+                            style={{
+                              height: '100%',
+                              zIndex: 5,
+                              position: 'relative',
+                              background:
+                                i % 2 === 0 ? 'hotpink' : 'greenyellow',
+                            }}
+                          >
+                            {localStorageItems?.[i].title}
+                          </div>
+                          <Motion
+                            key={`description-${i}`}
+                            defaultStyle={{ x: 0, y: y }}
+                            style={
+                              globalStateForDescription
+                                ? {
+                                    x: globalStateForDescription[i].x?.val,
+                                    y: -50,
+                                  }
+                                : { x: 0, y: -50 }
+                            }
+                          >
+                            {(interpolatingStyle) => (
+                              <div
+                                style={{
+                                  zIndex: 1,
+                                  height: '50px',
+                                  backgroundColor: 'blue',
+                                  WebkitTransform: `translate3d(${interpolatingStyle.x}px, ${interpolatingStyle.y}px, 0)`,
+                                  transform: `translate3d(${interpolatingStyle.x}px, ${interpolatingStyle.y}px, 0)`,
+                                }}
+                              >
+                                {localStorageItems?.[i].description}
+                              </div>
+                            )}
+                          </Motion>
                         </div>
                         <button
                           type="button"
