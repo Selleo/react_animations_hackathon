@@ -1,9 +1,9 @@
 import { gsap } from 'gsap'
 import { useEffect, useRef, useState } from 'react'
-import Loading from './Loading'
 
 import TextInput from './../Pages/TextInput'
 import List from './List'
+import Loading from './Loading'
 
 function fetchComponents() {
   return new Promise((resolve) => {

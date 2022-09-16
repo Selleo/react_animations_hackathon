@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import { gsap, Power0 } from 'gsap'
+import { useEffect } from 'react'
 
 const Loading = () => {
   useEffect(() => {
