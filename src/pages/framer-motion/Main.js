@@ -1,5 +1,6 @@
 import './styles/main.css'
 
+import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 import ListLoader from './components/ElementsLoader'
@@ -19,9 +20,13 @@ export const Main = () => {
   if (isLoading) return <ListLoader number={20} />
   return (
     <>
-      <div className="text-xl	uppercase tracking-wide text-purple-400 text-center">
+      <motion.div
+        className="text-xl	uppercase tracking-wide text-purple-400 text-center"
+        initial={{ x: '-100%' }}
+        animate={{ x: 0 }}
+      >
         Framer motion
-      </div>
+      </motion.div>
       <Form />
       <List />
     </>

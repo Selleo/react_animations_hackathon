@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 import Input from './Input'
@@ -18,7 +19,11 @@ const Form = () => {
   }, [inputNameQuery])
 
   return (
-    <form class="w-full max-w-lg">
+    <motion.form
+      class="w-full max-w-lg"
+      initial={{ x: '-100%' }}
+      animate={{ x: 0 }}
+    >
       <Input
         label="Name"
         type="text"
@@ -28,7 +33,7 @@ const Form = () => {
       />
       <Input label="Date" type="date" error="" value="" />
       <SelectInput />
-    </form>
+    </motion.form>
   )
 }
 
