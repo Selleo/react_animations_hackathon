@@ -1,4 +1,4 @@
-import gsap, { Power0 } from 'gsap'
+import gsap from 'gsap'
 import { useState } from 'react'
 
 const data = [
