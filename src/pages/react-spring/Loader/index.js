@@ -6,7 +6,7 @@ import flag from './flag.png'
 const Loader = () => {
   const styles = useSpring({
     loop: true,
-    to: [{ left: '60%' }],
+    to: [{ left: '80%' }],
     from: {
       position: 'absolute',
       left: '0%',
@@ -44,7 +44,7 @@ const Loader = () => {
 
   const stylesTyre1 = useSpring({
     loop: true,
-    to: [{ right: '38%', left: '15%' }],
+    to: [{ right: '19%', left: '15%' }],
     from: {
       height: 12,
       backgroundColor: '#000000',
@@ -59,7 +59,7 @@ const Loader = () => {
 
   const stylesTyre2 = useSpring({
     loop: true,
-    to: [{ right: '38%', left: '15%' }],
+    to: [{ right: '19%', left: '15%' }],
     from: {
       height: 12,
       backgroundColor: '#000000',
