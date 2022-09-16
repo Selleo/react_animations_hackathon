@@ -35,7 +35,7 @@ const TextInput = () => {
     gsap.to(placeholderText.current, {
       x: 0,
       y: 35,
-      color: 'blue',
+      color: 'white',
       fontSize: '15px',
     })
   }
