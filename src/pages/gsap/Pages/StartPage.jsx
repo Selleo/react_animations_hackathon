@@ -66,7 +66,7 @@ const StartPage = () => {
         ) : null}
 
         {loadingState === 'start' ? (
-          <div class="flex justify-center items-center">
+          <div className="flex justify-center items-center">
             <Loading />
           </div>
         ) : loadingState === 'complete' ? (

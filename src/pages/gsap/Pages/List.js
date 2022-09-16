@@ -52,7 +52,8 @@ const List = () => {
     animate.play()
   }
 
-  const deleteItem = (id) => {
+  const deleteItem = (e, id) => {
+    e.stopPropagation()
     let animate = gsap.to(`#item-${id}`, { x: 1000, duration: 1, opacity: 0 })
     animate.play()
 
@@ -67,24 +68,26 @@ const List = () => {
     <div className="mt-10 w-96 text-white">
       <ul>
         {list.map((item) => (
-          <li id={`item-${item.id}`} className="w-full mt-6" key={item.id}>
-            <span
-              onClick={() => {
-                updateList(item.id, !item.show)
-              }}
-              style={{ cursor: 'pointer' }}
-            >
-              {item.name}
-            </span>
-            <button
-              onClick={() => deleteItem(item.id)}
-              style={{ color: 'red', marginLeft: '10px' }}
-            >
-              x
-            </button>
+          <li
+            id={`item-${item.id}`}
+            className="w-full mt-6 cursor-pointer border-[1px] py-2 px-4 rounded-xl"
+            key={item.id}
+            onClick={() => {
+              updateList(item.id, !item.show)
+            }}
+          >
+            <div className="flex justify-between">
+              <p className="uppercase">{item.name}</p>
+              <button
+                className="text-red-500 ml-3 text-base outline outline-1 py-0 px-2 rounded"
+                onClick={(e) => deleteItem(e, item.id)}
+              >
+                X
+              </button>
+            </div>
             <div className={`show-${item.id}`}>
               {item.show && (
-                <div>
+                <div className="mt-4">
                   {item.description}{' '}
                   <img
                     alt={item.description}
