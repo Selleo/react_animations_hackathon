@@ -1,11 +1,9 @@
-import { useState } from 'react'
 import { animated, useSpring } from 'react-spring'
 
 import car from './car.png'
 import flag from './flag.png'
 
 const Loader = () => {
-  const [isLoading, setIsLoading] = useState(true)
   const styles = useSpring({
     loop: true,
     to: [{ left: '60%' }],
@@ -74,26 +72,24 @@ const Loader = () => {
     config: { mass: 3, tension: 40, friction: 20, clamp: true },
   })
   return (
-    isLoading && (
-      <>
-        <div
-          style={{
-            position: 'fixed',
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            backgroundColor: 'white',
-          }}
-        >
-          <animated.img style={styles} src={car} alt="car" />
-          <animated.img style={stylesFlag1} src={flag} alt="flag" />
-          <animated.img style={stylesFlag2} src={flag} alt="flag" />
-          <animated.div style={stylesTyre1} />
-          <animated.div style={stylesTyre2} />
-        </div>
-      </>
-    )
+    <>
+      <div
+        style={{
+          position: 'fixed',
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0,
+          backgroundColor: 'white',
+        }}
+      >
+        <animated.img style={styles} src={car} alt="car" />
+        <animated.img style={stylesFlag1} src={flag} alt="flag" />
+        <animated.img style={stylesFlag2} src={flag} alt="flag" />
+        <animated.div style={stylesTyre1} />
+        <animated.div style={stylesTyre2} />
+      </div>
+    </>
   )
 }
 
