@@ -43,7 +43,7 @@ export const TextField = () => {
   }
 
   const validateEmail = () => {
-    const regex = /^[a-zA-Z0-9\.\_]+\@@{1}[a-zA-Z0-9]+\.\w{2,4}$/
+    const regex = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.\w{2,4}$/
     if (!regex.test(inputRef.current.value))
       alert('Please enter valid email id')
   }
