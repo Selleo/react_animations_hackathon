@@ -48,7 +48,7 @@ const TextInput = () => {
         rotationX: 180,
         y: 34,
         backgroundColor: 'red',
-        color: '#d14848',
+        color: '#fff',
       })
       gsap.to(errorMsg.current, {
         duration: 1,
@@ -108,7 +108,7 @@ const TextInput = () => {
           value={text}
         />
         <div className={classes.placeholder} ref={placeholderText}>
-          <p>name</p>
+          <p>NAME...</p>
         </div>
       </div>
       <button
@@ -121,7 +121,7 @@ const TextInput = () => {
         SEND
       </button>
       <p ref={errorMsg} className={classes.error}>
-        name cant be empty
+        NAME CANT BE EMPTY
       </p>
     </section>
   )
