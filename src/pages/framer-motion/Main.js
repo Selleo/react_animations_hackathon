@@ -19,7 +19,9 @@ export const Main = () => {
   if (isLoading) return <ListLoader number={20} />
   return (
     <>
-      <div>Framer motion</div>
+      <div className="text-xl	uppercase tracking-wide text-purple-400 text-center">
+        Framer motion
+      </div>
       <Form />
       <List />
     </>
