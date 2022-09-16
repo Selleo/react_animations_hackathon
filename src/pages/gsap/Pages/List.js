@@ -1,4 +1,4 @@
-import gsap from 'gsap'
+import gsap, { Power0 } from 'gsap'
 import { useState } from 'react'
 
 const data = [
@@ -35,21 +35,16 @@ const data = [
 const List = () => {
   const [list, setList] = useState(data)
 
-  const updateList = (id, show) => {
+  const showItem = (id, show) => {
     const newShow = list.map((item) => {
       if (item.id === id) return { ...item, show: show }
 
       return item
     })
 
-    setList(newShow)
+    if (!show) scaleDown(id)
 
-    let animate = gsap.fromTo(
-      `.show-${id}`,
-      { opacity: 0 },
-      { opacity: 1, duration: 10, ease: 'elastic' }
-    )
-    animate.play()
+    setList(newShow)
   }
 
   const deleteItem = (e, id) => {
@@ -64,6 +59,14 @@ const List = () => {
     }, 500)
   }
 
+  const scaleUp = (id) => {
+    gsap.fromTo(`#item-${id}`, { scale: 1 }, { scale: 1.06 })
+  }
+
+  const scaleDown = (id) => {
+    gsap.to(`#item-${id}`, { scale: 1 })
+  }
+
   return (
     <div className="mt-10 w-96 text-white">
       <ul>
@@ -72,8 +75,10 @@ const List = () => {
             id={`item-${item.id}`}
             className="w-full mt-6 cursor-pointer border-[1px] py-2 px-4 rounded-xl"
             key={item.id}
+            onMouseEnter={() => scaleUp(item.id)}
+            onMouseLeave={() => scaleDown(item.id)}
             onClick={() => {
-              updateList(item.id, !item.show)
+              showItem(item.id, !item.show)
             }}
           >
             <div className="flex justify-between">

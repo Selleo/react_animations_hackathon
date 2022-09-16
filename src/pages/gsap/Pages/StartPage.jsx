@@ -49,10 +49,7 @@ const StartPage = () => {
 
   return (
     <div className="min-h-screen flex-row bg-gray-800 p-6">
-      <div
-        className="w-full flex justify-center items-center h-auto font-bold"
-        style={{ fontSize: '35px' }}
-      >
+      <div className="w-full flex justify-center items-center h-auto font-bold text-[35px]">
         <h1 className="text-justify" ref={header}>
           Hello Gasp Animations
         </h1>
