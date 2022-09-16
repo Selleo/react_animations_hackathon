@@ -7,7 +7,7 @@ const SelectInput = ({ label, type }) => {
   const animateLabel = () => setIsFocused((prevState) => !prevState)
 
   return (
-    <div class="w-full mt-2 md:w-1/2 px-3 mb-6 md:mb-0">
+    <div class="w-full mt-2 md:w-1/2 mb-6 md:mb-0">
       <motion.label
         class="block uppercase tracking-wide text-purple-700 text-xs font-bold mb-2"
         for="grid-state"

@@ -1,3 +1,5 @@
+import './styles/main.css'
+
 import { useEffect, useState } from 'react'
 
 import ListLoader from './components/ElementsLoader'
@@ -10,7 +12,7 @@ export const Main = () => {
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false)
-    }, 5000)
+    }, 500)
     return () => clearTimeout(loadingTimeout)
   }, [])
 

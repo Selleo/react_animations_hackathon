@@ -5,13 +5,23 @@ import { useState } from 'react'
 const Input = ({ label, type, error, onChange, value }) => {
   const [isFocused, setIsFocused] = useState(false)
 
-  const animateLabel = () => setIsFocused((prevState) => !prevState)
+  const animateLabel = () => setIsFocused(true)
+  const hideLabel = () => setIsFocused(false)
 
   return (
-    <div class="w-full mt-2 md:w-1/2 px-3 mb-6 md:mb-0">
+    <motion.div
+      layout="position"
+      key={label}
+      class="w-full mt-2 md:w-1/2 mb-6 md:mb-0"
+    >
       <motion.label
         class="block uppercase tracking-wide text-purple-700 text-xs font-bold mb-2"
         for="grid-first-name"
+        style={{
+          pointerEvents: 'none',
+          zIndex: '-1',
+          position: 'relative',
+        }}
         animate={{
           opacity: isFocused ? 1 : 0,
           y: isFocused ? 0 : 30,
@@ -37,12 +47,16 @@ const Input = ({ label, type, error, onChange, value }) => {
               }
             : {}
         }
+        name={label}
+        value={value}
+        onChange={onChange}
+        key={label}
         id="grid-first-name"
-        onBlur={animateLabel}
-        onFocus={animateLabel}
+        onBlurCapture={hideLabel}
+        onFocusCapture={animateLabel}
         placeholder={isFocused ? '' : label}
         type={type}
-        whileFocus={{ scale: 1.1 }}
+        whileFocus={{ scale: 1.05 }}
         onChange={onChange}
         value={value}
       />
@@ -72,7 +86,7 @@ const Input = ({ label, type, error, onChange, value }) => {
           </motion.error>
         </AnimatePresence>
       )}
-    </div>
+    </motion.div>
   )
 }
 

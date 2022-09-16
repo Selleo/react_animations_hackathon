@@ -4,35 +4,14 @@ import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
+import Input from '../components/Input.js'
+import { ListItem } from './ListItem'
+
 const LIST_DATA = [
   {
     id: uuidv4(),
     name: 'Hello there',
-    description: 'This is a very long text',
-    date: new Date(),
-  },
-  {
-    id: uuidv4(),
-    name: 'Hai',
-    description: 'This is a very long text',
-    date: new Date(),
-  },
-  {
-    id: uuidv4(),
-    name: 'Wassup',
-    description: 'This is a very long text',
-    date: new Date(),
-  },
-  {
-    id: uuidv4(),
-    name: 'This is very nice',
-    description: 'This is a very long text',
-    date: new Date(),
-  },
-  {
-    id: uuidv4(),
-    name: 'Hello',
-    description: 'This is a very long text',
+    description: 'Try adding more items!!',
     date: new Date(),
   },
 ]
@@ -40,6 +19,7 @@ const LIST_DATA = [
 export const List = () => {
   const [listData, setListData] = useState(LIST_DATA)
   const [isDragOn, setIsDragOn] = useState(false)
+  const [todo, setTodo] = useState('')
 
   const removeItem = (id) => {
     setListData((oldData) => {
@@ -48,17 +28,23 @@ export const List = () => {
     })
   }
 
-  const addItem = () => {
+  const handleOnChange = (e) => {
+    setTodo(e.target.value)
+  }
+
+  const addItem = (e) => {
+    e.preventDefault()
     const id = uuidv4()
     setListData((oldData) => {
       const newItem = {
         id,
-        name: 'Hello',
+        name: todo,
         description: `This is a description of ${id}`,
         date: new Date(),
       }
       return [...oldData, newItem]
     })
+    setTodo('')
   }
 
   return (
@@ -71,61 +57,75 @@ export const List = () => {
       >
         Hello Todo List!
       </motion.h1>
+
       <motion.div key="list" layout className="list mb-4">
         <AnimatePresence>
-          {listData.map(({ id, name }, idx) => {
+          {listData.map(({ id, name, description }, idx) => {
             return (
-              <motion.div
-                drag={isDragOn}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{
-                  y: 0,
-                  opacity: 1,
-                  transition: { delay: idx * 0.05 },
-                }}
-                exit={{ opacity: 0 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.99 }}
-                className="list-item drop-shadow-sm rounded bg-purple-200"
-                layout="position"
+              <ListItem
                 key={id}
-              >
-                <p className="text-purple-900 text-lg">{name}</p>
-                <button
-                  className="list-remove-button text-purple-800 inline-block"
-                  onClick={() => removeItem(id)}
-                >
-                  Remove
-                </button>
-              </motion.div>
+                name={name}
+                idx={idx}
+                id={id}
+                description={description}
+                isDragOn={isDragOn}
+                onRemove={removeItem}
+              />
             )
           })}
         </AnimatePresence>
       </motion.div>
-      <div className="flex gap-2">
-        <motion.button
-          key="add-button"
-          layout
-          whileFocus={{ scale: 1.1 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.99 }}
-          className="px-4 py-2 rounded text-green-800 bg-green-300 inline-block "
-          onClick={addItem}
-        >
-          Add New Todo
-        </motion.button>
-        <motion.button
-          key="add-button"
-          layout
-          whileFocus={{ scale: 1.1 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.99 }}
-          className="px-4 py-2 rounded text-blue-600 bg-blue-300 inline-block "
-          onClick={() => setIsDragOn((s) => !s)}
-        >
-          Yeet Mode: {isDragOn ? 'On' : 'Off'}
-        </motion.button>
-      </div>
+
+      <form onSubmit={addItem}>
+        <Input
+          onChange={handleOnChange}
+          value={todo}
+          label="Whatcha wanna do?!"
+          type="text"
+        />
+        <div className="flex gap-6 mt-4">
+          <motion.button
+            key="add-button"
+            type="submit"
+            layout
+            whileFocus={{ scale: 1.1 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.99 }}
+            className="px-4 py-2 rounded text-green-800 bg-green-300 inline-block "
+            onClick={addItem}
+          >
+            Add New Todo
+          </motion.button>
+          <motion.button
+            key="delete-all"
+            layout
+            whileFocus={{ scale: 1.1 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.99 }}
+            className="px-4 py-2 rounded text-red-800 bg-red-300 inline-block "
+            onClick={(e) => {
+              e.preventDefault()
+              setListData([])
+            }}
+          >
+            Delete all
+          </motion.button>
+          <motion.button
+            key="yeet-mode"
+            layout
+            whileFocus={{ scale: 1.1 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.99 }}
+            className="px-4 py-2 rounded text-blue-600 bg-blue-300 inline-block "
+            onClick={(e) => {
+              e.preventDefault()
+              setIsDragOn((s) => !s)
+            }}
+          >
+            YeetMode™: {isDragOn ? 'On' : 'Off'}
+          </motion.button>
+        </div>
+      </form>
     </AnimateSharedLayout>
   )
 }
