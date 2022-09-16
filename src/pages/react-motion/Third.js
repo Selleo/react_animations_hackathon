@@ -8,9 +8,10 @@ export const Third = () => {
   const [state, setState] = useState({
     fontSize: 16,
     position: 'static',
-    bottom: 0.5,
+    bottom: 0.75,
     left: 1,
   })
+  const [value, setValue] = useState('')
 
   const handleClick = () => {
     setState({
@@ -21,11 +22,25 @@ export const Third = () => {
     })
   }
 
+  const handleBlur = () => {
+    if (!value)
+      setState({
+        bottom: spring(0.75, { stiffness: 50, damping: 10 }),
+        left: spring(1, { stiffness: 50, damping: 50 }),
+        fontSize: spring(16, { stiffness: 170, damping: 26, precision: 0.5 }),
+        position: 'static',
+      })
+  }
+
   return (
     <div>
       <Motion defaultStyle={{ scale: 0.5, top: 0 }} style={state}>
         {(interpolatedStyle) => (
-          <div className={'input-wrapper'} onFocus={handleClick}>
+          <div
+            className={'input-wrapper'}
+            onFocus={handleClick}
+            onBlur={handleBlur}
+          >
             <span
               style={{
                 position: interpolatedStyle.position,
@@ -38,7 +53,12 @@ export const Third = () => {
             >
               Type your name...
             </span>
-            <input className={'input'} type="text" />
+            <input
+              className={'input'}
+              type="text"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+            />
           </div>
         )}
       </Motion>
