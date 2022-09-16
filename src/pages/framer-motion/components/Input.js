@@ -25,7 +25,7 @@ const Input = ({ label, type, error, onChange, value }) => {
         animate={{
           opacity: isFocused ? 1 : 0,
           y: isFocused ? 0 : 30,
-          color: isEmpty(error) ? 'rgb(126 34 206)' : 'red',
+          color: isEmpty(error) ? 'rgb(126 34 206)' : 'rgb(239 68 68)',
         }}
         initial={{
           opacity: 0,
@@ -37,16 +37,13 @@ const Input = ({ label, type, error, onChange, value }) => {
 
       <motion.input
         class={`bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 `}
-        defaultValue={
-          type === 'date' ? new Date().toLocaleDateString('en-CA') : ''
-        }
-        animate={
-          !isEmpty(error)
-            ? {
-                borderColor: 'red',
-              }
-            : {}
-        }
+        animate={{
+          borderColor: !isEmpty(error)
+            ? 'rgb(239 68 68)'
+            : isFocused
+            ? 'rgb(126 34 206)'
+            : 'rgb(229 231 235)',
+        }}
         name={label}
         value={value}
         onChange={onChange}
@@ -57,13 +54,11 @@ const Input = ({ label, type, error, onChange, value }) => {
         placeholder={isFocused ? '' : label}
         type={type}
         whileFocus={{ scale: 1.05 }}
-        onChange={onChange}
-        value={value}
       />
       {!isEmpty(error) && (
         <AnimatePresence>
-          <motion.error
-            class="text-red-500 block"
+          <motion.span
+            class="text-red-500 block text-sm"
             for="grid-first-name"
             key={error}
             animate={
@@ -83,7 +78,7 @@ const Input = ({ label, type, error, onChange, value }) => {
             }}
           >
             {error}
-          </motion.error>
+          </motion.span>
         </AnimatePresence>
       )}
     </motion.div>
