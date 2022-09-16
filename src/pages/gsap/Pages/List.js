@@ -88,10 +88,10 @@ const List = () => {
             <div className={`show-${item.id}`}>
               {item.show && (
                 <div className="mt-4">
-                  {item.description}{' '}
+                  {item.description}
                   <img
+                    className="w-full"
                     alt={item.description}
-                    style={{ width: 300 }}
                     src={`/planets/${item.name.toLowerCase()}.png`}
                   />
                 </div>

@@ -22,6 +22,9 @@ const StartPage = () => {
   const [loadingState, setLoadingState] = useState()
 
   useEffect(() => {
+    if (loadingState === 'complete')
+      gsap.fromTo('#content', { scale: 0 }, { scale: 1, duration: 1 })
+
     if (loadingState !== 'start') return
 
     const loadData = async () => {
@@ -58,7 +61,7 @@ const StartPage = () => {
       <div className="mt-24 flex justify-center">
         {!loadingState ? (
           <button
-            className="text-white outline-cyan-500 border-2 rounded-lg	py-2 px-4"
+            className="text-white outline-cyan-500 border-2 rounded-lg py-2 px-4"
             onClick={startLoading}
           >
             Start Loading
@@ -70,7 +73,7 @@ const StartPage = () => {
             <Loading />
           </div>
         ) : loadingState === 'complete' ? (
-          <div className="flex flex-col">
+          <div id="content" className="flex flex-col">
             {data.map((item) => (
               <div key={item.id}>{item.component}</div>
             ))}
