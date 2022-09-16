@@ -18,6 +18,7 @@ function fetchComponents() {
 
 const StartPage = () => {
   const header = useRef()
+  const startButton = useRef()
   const [data, setData] = useState([])
   const [loadingState, setLoadingState] = useState()
 
@@ -38,10 +39,16 @@ const StartPage = () => {
   useEffect(() => {
     gsap.fromTo(
       header.current,
-      { opacity: 0, color: '#2aa34b', scale: 1 },
-      { opacity: 1, color: '#4bf005', scale: 1.2, duration: 2 }
+      { opacity: 0, color: '#2aa34b', scale: 0 },
+      { opacity: 1, color: '#fff', scale: 1.2, duration: 2 }
     )
-  }, [header])
+
+    gsap.fromTo(
+      startButton.current,
+      { opacity: 0, scale: 0 },
+      { opacity: 1, scale: 1.2, duration: 2 }
+    )
+  }, [header, startButton])
 
   const startLoading = () => {
     if (!loadingState) setLoadingState('start')
@@ -58,6 +65,7 @@ const StartPage = () => {
       <div className="mt-24 flex justify-center">
         {!loadingState ? (
           <button
+            ref={startButton}
             className="text-white outline-cyan-500 border-2 rounded-lg py-2 px-4"
             onClick={startLoading}
           >

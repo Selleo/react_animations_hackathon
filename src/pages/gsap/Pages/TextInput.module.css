@@ -1,22 +1,25 @@
 .wrap {
-  align-items: center;
   background-color: #1f2937;
   display: flex;
   justify-content: center;
   position: relative;
+  align-items: flex-start;
 }
 
 .container {
   align-items: center;
   display: flex;
   justify-content: center;
-  padding: 3rem 0;
+  padding-bottom: 3rem;
   position: relative;
 }
 
 .input {
   border-radius: 10px;
   padding: 5px 10px;
+  background-color: #1f2937;
+  border: 1px solid #fff;
+  color: #fff;
 }
 
 .placeholder {
@@ -29,11 +32,11 @@
 }
 
 .btn {
-  background-color: #fff;
   border-radius: 10px;
-  color: #1f2937;
+  color: #fff;
   margin-left: 10px;
   padding: 5px 10px;
+  border: 1px solid #fff;
 }
 
 .btn:hover {
@@ -48,6 +51,6 @@
   font-size: 12px;
   position: absolute;
   left: 50%;
-  top: -20px;
+  top: 0px;
   transform: translate(-50%);
 }

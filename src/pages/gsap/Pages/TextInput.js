@@ -55,7 +55,7 @@ const TextInput = () => {
         scale: 1,
         rotationZ: 720,
         opacity: 1,
-        top: '20px',
+        top: '-25px',
       })
       return
     } else {
@@ -80,8 +80,8 @@ const TextInput = () => {
         duration: 1,
         rotationX: 0,
         y: 0,
-        backgroundColor: '#fff',
-        color: '#1f2937',
+        backgroundColor: '#1f2937',
+        color: '#fff',
       })
       gsap.to(errorMsg.current, {
         duration: 1,
