@@ -28,7 +28,7 @@ const SelectInput = ({ label, type }) => {
       </motion.label>
       <div class="relative">
         <motion.select
-          class="block appearance-none w-full bg-gray-200 border-2 border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+          class="block appearance-none w-full bg-white-200 border-2 border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
           id="grid-state"
           onBlur={animateLabel}
           onFocus={animateLabel}
