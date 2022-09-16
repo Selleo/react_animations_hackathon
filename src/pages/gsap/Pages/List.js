@@ -53,16 +53,21 @@ const List = () => {
   }
 
   const deleteItem = (id) => {
-    const newList = list.filter((item) => item.id !== id)
+    let animate = gsap.to(`#item-${id}`, { x: 1000, duration: 1, opacity: 0 })
+    animate.play()
 
-    setList(newList)
+    setTimeout(() => {
+      const newList = list.filter((item) => item.id !== id)
+
+      setList(newList)
+    }, 500)
   }
 
   return (
-    <div className="bg-gray-800 mt-10" style={{ color: '#fff' }}>
+    <div className="mt-10 w-96 text-white">
       <ul>
         {list.map((item) => (
-          <li style={{ margin: '10px 0' }} key={item.id}>
+          <li id={`item-${item.id}`} className="w-full mt-6" key={item.id}>
             <span
               onClick={() => {
                 updateList(item.id, !item.show)
