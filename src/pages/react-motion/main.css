@@ -1,0 +1,21 @@
+.input {
+    border: 2px solid gray;
+    height: 3rem;
+    background-color: lightgray;
+    font-size: 1rem !important;
+    color: black;
+    padding: 1rem;
+}
+
+.label {
+    position: absolute;
+}
+
+.input-wrapper {
+    border: 2px dot-dash hotpink;
+    display: flex;
+    flex-direction: column;
+
+    width: 300px;
+    position: relative;
+}
