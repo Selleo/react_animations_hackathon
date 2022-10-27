@@ -15,6 +15,8 @@ Cons:
 - You have to rely on reverse engineering the examples
 - I had problem with two separate animations to control the same css property (height) but finally found a tip in docs
 
+**Overall: 6/10**
+
 
 ### [framer-motion](https://www.framer.com/motion/)
 
@@ -31,6 +33,8 @@ Pros:
 Cons:
 - Library is quite heavy, but it has lightweight version if we don't need some features `import { m } from 'framer-motion'`
 
+**Overall: 9/10**
+
 ### [react-motion](https://github.com/chenglou/react-motion)
 
 [Result](https://selleo-react-animations-hackathon.netlify.app/react-motion)
@@ -38,10 +42,15 @@ Cons:
 Team opinion:
 
 Pros:
-- wip 
+- It's possible to do SOMETHING
 
 Cons:
-- wip
+- Non existent documentation and solutions on SO are very old (use class components)
+- High entry point to understand the library and achieve even the simplest animations
+- Implementation is based on component state and overriding inline styles.
+- Unintuitive and unclear API
+
+**Overall: 0/10**
 
 ### [GSAP (GreenSock Animation Platform)](https://github.com/greensock/GSAP)
 
@@ -54,3 +63,5 @@ Pros:
 
 Cons:
 - wip
+
+**Overall: -/10**
