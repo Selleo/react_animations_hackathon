@@ -6,6 +6,8 @@
 
 [Deployed app](https://selleo-react-animations-hackathon.netlify.app/)
 
+[Results](./RESULTS.md)
+
 ## Available Scripts
 
 In the project directory, you can run:
