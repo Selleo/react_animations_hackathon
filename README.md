@@ -6,7 +6,7 @@ To read through participants opinion about used animation libraries check **[Res
 
 Here you can see the [tasks description](https://docs.google.com/document/d/14Htew_YzCVcP5lT1-s6sgbaAwsGik1jPs_rkA0RtzY8/edit#) of what we tried to implement during hackathon.
 
-Doc with [teams](https://docs.google.com/spreadsheets/d/1wKo5fcuxizddfrIq8AoTrRJD_oiPFTWAhWn32k14NXI/edit#gid=0) participatin in the hackathon.
+Doc with [teams](https://docs.google.com/spreadsheets/d/1wKo5fcuxizddfrIq8AoTrRJD_oiPFTWAhWn32k14NXI/edit#gid=0) participating in the hackathon.
 
 ---
 
