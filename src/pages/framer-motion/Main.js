@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 import ListLoader from './components/ElementsLoader'
-import Form from './components/Form'
 import { List } from './components/List'
 
 export const Main = () => {
@@ -62,12 +61,7 @@ export const Main = () => {
           )
         })}
       </div>
-      {showContent && (
-        <>
-          {/* <Form /> */}
-          <List />
-        </>
-      )}
+      {showContent && <List />}
     </>
   )
 }
