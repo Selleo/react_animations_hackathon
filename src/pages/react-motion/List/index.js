@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { presets, spring } from 'react-motion'
 import { Motion, StaggeredMotion } from 'react-motion/lib/react-motion'
 import { useLocalStorage } from 'react-use'
+
+import { Third } from '../Third'
 
 const listItems = [
   { id: 1, title: 'Item 1', description: 'Description' },
@@ -181,6 +183,7 @@ const List = () => {
           )
         }}
       </StaggeredMotion>
+      <Third />
     </>
   )
 }

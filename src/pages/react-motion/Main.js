@@ -9,7 +9,7 @@ export const Main = () => {
   const [step, setStep] = useState(0)
 
   useInterval(() => {
-    setStep((current) => (current + 1) % 3)
+    setStep((current) => current + 1)
   }, 5000)
 
   return (
@@ -45,7 +45,7 @@ export const Main = () => {
           )}
         </Motion>
       )}
-      {step === 2 && <List />}
+      {step >= 2 && <List />}
     </div>
   )
 }
