@@ -18,7 +18,11 @@ Team opinion:
 
 Team opinion:
 
-- 
+- Really pleasurable to work with library
+- Easy to understand, intuitive and powerful API which is also well documented
+- Works nicely with SVG
+- Can make animations between SPA routes
+- Library is quite heavy, but it has lightweight version if we don't need some features `import { m } from 'framer-motion'`
 
 ### [react-motion](https://github.com/chenglou/react-motion)
 
