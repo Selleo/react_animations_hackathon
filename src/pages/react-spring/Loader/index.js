@@ -10,7 +10,7 @@ const Loader = () => {
     from: {
       position: 'absolute',
       left: '0%',
-      top: '35%',
+      top: '29%',
       zIndex: 9999,
     },
     config: { mass: 3, tension: 40, friction: 20, clamp: true },
@@ -52,7 +52,7 @@ const Loader = () => {
       left: '0%',
       right: '100%',
       top: '37%',
-      opacity: 0.7,
+      opacity: 0.4,
     },
     config: { mass: 3, tension: 40, friction: 20, clamp: true },
   })
@@ -66,8 +66,8 @@ const Loader = () => {
       position: 'fixed',
       left: '0%',
       right: '100%',
-      top: '42.5%',
-      opacity: 0.7,
+      top: '43%',
+      opacity: 0.4,
     },
     config: { mass: 3, tension: 40, friction: 20, clamp: true },
   })
@@ -78,7 +78,7 @@ const Loader = () => {
           position: 'fixed',
           left: 0,
           right: 0,
-          top: 0,
+          top: '64px',
           bottom: 0,
           backgroundColor: 'white',
         }}
