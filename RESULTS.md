@@ -59,9 +59,11 @@ Cons:
 Team opinion:
 
 Pros:
-- wip
+- Extensive documentation even containing videos
+- Allows easily create simple animations by getting element with `useRef` and trigger GSAP functions
+- Is extensible via plugins
 
 Cons:
-- wip
+- team did not reported any
 
-**Overall: -/10**
+**Overall: 9/10**
