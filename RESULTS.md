@@ -4,8 +4,6 @@
 
 [Result](https://selleo-react-animations-hackathon.netlify.app/react-spring)
 
-Team opinion:
-
 Pros:
 - After wrapping your head around the API quirks you can do pretty nice effects
 
@@ -17,12 +15,11 @@ Cons:
 
 **Overall: 6/10**
 
+---
 
 ### [framer-motion](https://www.framer.com/motion/)
 
 [Result](https://selleo-react-animations-hackathon.netlify.app/framer-motion)
-
-Team opinion:
 
 Pros:
 - Really pleasurable to work with library
@@ -35,11 +32,11 @@ Cons:
 
 **Overall: 9/10**
 
+---
+
 ### [react-motion](https://github.com/chenglou/react-motion)
 
 [Result](https://selleo-react-animations-hackathon.netlify.app/react-motion)
-
-Team opinion:
 
 Pros:
 - It's possible to do SOMETHING
@@ -52,11 +49,11 @@ Cons:
 
 **Overall: 0/10**
 
+---
+
 ### [GSAP (GreenSock Animation Platform)](https://github.com/greensock/GSAP)
 
 [Result](https://selleo-react-animations-hackathon.netlify.app/gsap)
-
-Team opinion:
 
 Pros:
 - Extensive documentation even containing videos
