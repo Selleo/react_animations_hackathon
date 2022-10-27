@@ -1,12 +1,12 @@
 # React animations hackathon
 
-**[Deployed app](https://selleo-react-animations-hackathon.netlify.app/)**
+If you want to see the created animations check **[Deployed app](https://selleo-react-animations-hackathon.netlify.app/)**.
 
-**[Results](./RESULTS.md)**
+To read through participants opinion about used animation libraries check **[Results](./RESULTS.md)**.
 
-[Tasks description](https://docs.google.com/document/d/14Htew_YzCVcP5lT1-s6sgbaAwsGik1jPs_rkA0RtzY8/edit#)
+Here you can see the [tasks description](https://docs.google.com/document/d/14Htew_YzCVcP5lT1-s6sgbaAwsGik1jPs_rkA0RtzY8/edit#) of what we tried to implement during hackathon.
 
-[Teams](https://docs.google.com/spreadsheets/d/1wKo5fcuxizddfrIq8AoTrRJD_oiPFTWAhWn32k14NXI/edit#gid=0)
+Doc with [teams](https://docs.google.com/spreadsheets/d/1wKo5fcuxizddfrIq8AoTrRJD_oiPFTWAhWn32k14NXI/edit#gid=0) participatin in the hackathon.
 
 ## Available Scripts
 
