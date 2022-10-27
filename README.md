@@ -1,12 +1,12 @@
 # React animations hackathon
 
+**[Deployed app](https://selleo-react-animations-hackathon.netlify.app/)**
+
+**[Results](./RESULTS.md)**
+
 [Tasks description](https://docs.google.com/document/d/14Htew_YzCVcP5lT1-s6sgbaAwsGik1jPs_rkA0RtzY8/edit#)
 
 [Teams](https://docs.google.com/spreadsheets/d/1wKo5fcuxizddfrIq8AoTrRJD_oiPFTWAhWn32k14NXI/edit#gid=0)
-
-[Deployed app](https://selleo-react-animations-hackathon.netlify.app/)
-
-[Results](./RESULTS.md)
 
 ## Available Scripts
 
