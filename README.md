@@ -8,27 +8,19 @@ Here you can see the [tasks description](https://docs.google.com/document/d/14Ht
 
 Doc with [teams](https://docs.google.com/spreadsheets/d/1wKo5fcuxizddfrIq8AoTrRJD_oiPFTWAhWn32k14NXI/edit#gid=0) participatin in the hackathon.
 
-## Available Scripts
+---
+
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run lint`
 
